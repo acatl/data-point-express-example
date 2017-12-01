@@ -1,0 +1,47 @@
+{
+  "name": "data-point-express-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "lint": "standard --verbose | snazzy",
+    "npm i": "jest --watchAll --coverage",
+    "watch": "nodemon index.js",
+    "release": "npm run lint && standard-version"
+  },
+  "keywords": [],
+  "author": "Acatl Pacheco <acatl.pacheco@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "data-point": "^1.5.0",
+    "data-point-express": "^1.5.0",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "commitizen": "latest",
+    "cz-conventional-changelog": "latest",
+    "jest": "latest",
+    "lint-staged": "latest",
+    "prettier-standard": "^7.0.3",
+    "snazzy": "latest",
+    "standard": "latest",
+    "standard-version": "latest",
+    "supertest": "^3.0.0",
+    "nodemon": "1.12.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-standard",
+      "git add",
+      "standard",
+      "jest --bail --findRelatedTests"
+    ]
+  }
+}
